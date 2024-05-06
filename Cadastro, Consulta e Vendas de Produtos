@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+int
+main (void)
+{
+
+  int qtd[20], i, b, c,opcao,qtd_venda;
+  char nome[20][10], consulta[20];
+  float preco[20] ;
+  bool menu = true;
+
+  while (menu == true)
+    {
+
+      printf ("\n1.Cadastro\n2.Consulta\n3.Venda\n");
+      scanf ("%d", &opcao);
+      
+      switch (opcao)
+   	 {
+
+   	 case 1:
+   	   printf ("\n##CADASTRO##");
+   	   printf ("\nInsira o nome do produto: ");
+   	   scanf ("%s", nome[i]);
+   	   printf ("\nInsira a quantidade: ");
+   	   scanf ("%d", &qtd[i]);
+   	   printf ("\nInsira o preço: ");
+   	   scanf ("%f", &preco[i]);
+   	   i++;
+
+   	   break;
+
+   	 case 2:
+   	   printf ("\n##CONSULTA##\n");
+   	   printf ("\nInsira o nome do produto: ");
+   	   scanf("%s",consulta);
+   	   for (b = 0; b < i; b++)
+   		 {
+   		   if (strcmp(consulta, nome[b]) == 0)
+   			 {
+   			  printf("\nNome: %s",nome[b]);
+   			  printf("\nQuantidade: %d",qtd[b]);
+   			  printf("\nPreço: %.2f",preco[b]);
+   			  break;
+   			 }
+   		   else
+   			 {
+   			   if (b == i)
+   				 {
+   				   printf ("\nNão cadastrado!");
+   				 }
+   			 }
+   			 
+   			 case 3:
+   			 
+   			  printf ("\nInsira o nome do produto: ");
+   	      	scanf("%s",consulta);
+   	     	 
+   	      	for(c=0;c<i;c++){
+   	          	if (strcmp(consulta, nome[c]) == 0){
+   	              	printf("\nInsira a quantidade: ");
+   	              	scanf("%d",&qtd_venda);
+   	              	if(qtd[c]>=qtd_venda){
+   	                  	qtd[c]=qtd[c]-qtd_venda;
+   	                  	printf("\nCompra realizada com sucesso! ");
+   	                  	break;
+   	                	 
+   	              	}
+   	              	else
+   	              	{
+   	                 	printf("\nSaldo Insuficiente!");
+   	              }
+   	          } 
+   	      	}
+   	      	if(c==i){
+   	          	printf("\nProduto não cadastrado!");
+   	      	}
+   		  }
+   	  }
+   }
+}
+    
